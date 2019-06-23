@@ -57,6 +57,13 @@ public class ContribuableController {
         contribuableService.supprimer(NIF);
         return true;
     }
+    @GetMapping(value = "/findByLogin/{login}")
+    public @ResponseBody
+    Contribuable getAllContribuables(@PathVariable String login) {
+        return this.contribuableService.findByLogin(login);
+    }
+
+
 
     @GetMapping(value = "/find/{NIF}")
     public Contribuable findOne(@PathVariable Long NIF) {
